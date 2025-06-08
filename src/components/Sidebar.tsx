@@ -51,7 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     <AnimatePresence>
       {isOpen && (
         <motion.aside
-          className="w-80 glass-panel border-r border-slate-700/50 flex flex-col relative overflow-hidden"
+          className="w-80 glass-panel border-r border-slate-700/50 flex flex-col relative overflow-hidden h-screen full-height-sidebar"
           initial={{ x: -320, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -320, opacity: 0 }}

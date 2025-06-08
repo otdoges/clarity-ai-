@@ -13,7 +13,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onToggleSidebar, session }) => {
   return (
     <motion.header 
-      className="glass-panel border-b border-slate-700/50 px-6 py-4 flex items-center justify-between relative overflow-hidden"
+      className="glass-panel border-b border-slate-700/50 px-6 py-4 flex items-center justify-between relative overflow-hidden z-30 sticky top-0"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -133,15 +133,17 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar, session }) => {
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="flex items-center space-x-4"
-      >
-        <ModelSelect />
+      <div className="flex items-center gap-3 relative z-30">
+        <div className="hidden md:block">
+          <ModelSelect />
+        </div>
         {session && <UserProfile session={session} />}
-      </motion.div>
+        
+        {/* Mobile Model Select - Only visible on smaller screens */}
+        <div className="md:hidden absolute left-0 top-full mt-2 w-full px-6">
+          <ModelSelect />
+        </div>
+      </div>
     </motion.header>
   );
 };

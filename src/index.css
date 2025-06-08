@@ -67,6 +67,38 @@
       radial-gradient(ellipse at bottom left, rgba(94, 124, 226, 0.1) 0%, transparent 50%),
       linear-gradient(135deg, #1A202C 0%, #2D3748 50%, #1A202C 100%);
   }
+
+  /* Add full height sidebar class */
+  .full-height-sidebar {
+    height: 100vh;
+    min-height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Ensure model selector stays in header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  
+  /* Fix model selector position */
+  .model-selector {
+    position: static !important;
+    bottom: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+  
+  /* Ensure model selector dropdown is visible */
+  .model-selector > div {
+    position: absolute !important;
+    top: 100% !important;
+    bottom: auto !important;
+  }
 }
 
 /* Enhanced Shimmer effect for streaming text */

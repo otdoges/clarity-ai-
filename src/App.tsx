@@ -151,6 +151,7 @@ function App() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
+      style={{ height: '100vh', minHeight: '-webkit-fill-available' }}
     >
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none aurora-bg">
@@ -205,6 +206,7 @@ function App() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -320, opacity: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            className="h-screen"
           >
             <Sidebar 
               isOpen={sidebarOpen} 
@@ -229,22 +231,13 @@ function App() {
           ease: [0.4, 0, 0.2, 1] 
         }}
       >
-        {/* Header */}
-        <motion.div
-          className="relative z-20"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ 
-            duration: 0.8, 
-            delay: 0.3, 
-            ease: "easeOut" 
-          }}
-        >
+        {/* Header - Fixed at top */}
+        <div className="sticky top-0 z-50">
           <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} session={session} />
-        </motion.div>
+        </div>
 
         {/* Messages */}
-        <div className="flex-1 flex flex-col overflow-hidden relative z-10">
+        <div className="flex-1 flex flex-col overflow-hidden relative z-10 mt-0">
           <MessageList 
             messages={messages} 
             isGenerating={isLoading}

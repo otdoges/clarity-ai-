@@ -19,7 +19,7 @@ const ModelSelect: React.FC = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-30 model-selector" style={{ position: 'static' }}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className="glass-panel px-4 py-2 rounded-lg flex items-center space-x-3 hover:accent-glow transition-all duration-300 min-w-[180px]"
@@ -51,6 +51,7 @@ const ModelSelect: React.FC = () => {
             {/* Dropdown */}
             <motion.div
               className="absolute right-0 top-full mt-2 w-64 glass-panel rounded-lg border border-slate-700/50 overflow-hidden z-50"
+              style={{ maxHeight: '300px', overflowY: 'auto' }}
               initial={{ opacity: 0, y: -10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
