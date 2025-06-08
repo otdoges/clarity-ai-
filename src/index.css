@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+  }
+  
+  #root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Enhanced Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(45, 55, 72, 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #38B2AC, #5E7CE2);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #319795, #4C63D2);
+    box-shadow: 0 0 10px rgba(56, 178, 172, 0.5);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-slate-800/60 backdrop-blur-lg border border-slate-700/50;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .accent-gradient {
+    background: linear-gradient(135deg, #38B2AC, #5E7CE2);
+  }
+  
+  .accent-glow {
+    box-shadow: 
+      0 0 20px rgba(56, 178, 172, 0.3),
+      0 0 40px rgba(56, 178, 172, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .aurora-bg {
+    background: 
+      radial-gradient(ellipse at top left, rgba(56, 178, 172, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at top right, rgba(94, 124, 226, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(56, 178, 172, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(94, 124, 226, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, #1A202C 0%, #2D3748 50%, #1A202C 100%);
+  }
+}
+
+/* Enhanced Shimmer effect for streaming text */
+@keyframes shimmer {
+  0% { 
+    opacity: 0.3;
+    text-shadow: 0 0 5px rgba(56, 178, 172, 0.5);
+  }
+  50% { 
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(56, 178, 172, 0.8);
+  }
+  100% { 
+    opacity: 0.3;
+    text-shadow: 0 0 5px rgba(56, 178, 172, 0.5);
+  }
+}
+
+.shimmer-caret {
+  animation: shimmer 1s ease-in-out infinite;
+}
+
+/* Enhanced Pulse animation for AI avatar */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px rgba(56, 178, 172, 0.4),
+      0 0 40px rgba(56, 178, 172, 0.2);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px rgba(56, 178, 172, 0.8),
+      0 0 60px rgba(56, 178, 172, 0.4);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Floating animation for particles */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #38B2AC, #5E7CE2, #38B2AC);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(56, 178, 172, 0.5);
+  transform: translate(-50%, -50%);
+  animation: ripple 0.6s linear;
+}
